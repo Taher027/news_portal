@@ -1,40 +1,55 @@
-body{
-    background-color:#F8F9FA;
+body {
+    background-color: #F8F9FA;
 }
+
 /* header section */
-.header_container{
+.header_container {
     width: 80vw;
     margin: 0 auto;
     padding-top: 50px;
-    
+
 }
-.header_container h4{
+
+.header_container h4 {
     font-size: 24px;
 }
-.news-tag{
+
+.news-tag {
     background-color: blueviolet;
     color: white;
     padding: 10px;
     border-radius: 5px;
 }
-.news_color{
+
+.news_color {
     color: blueviolet;
 }
-hr{
+
+hr {
     width: 80vw;
     margin: 0 auto;
-    
+
 }
 
 /* main section start  */
 
-.category_menu{
+.category_menu {
     width: 80vw;
     margin: 0 auto;
     padding-top: 30px;
 }
-.section_width{
+
+.section_width {
     width: 80vw;
     margin: 0 auto;
     padding: 15px;
+}
+
+/* set media query for short by view section */
+
+@media only screen and (max-width: 780px) {
+    .setmedia {
+        display: flex;
+        flex-direction: column;
+    }
 }
