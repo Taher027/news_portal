@@ -33,3 +33,8 @@ hr{
     margin: 0 auto;
     padding-top: 30px;
 }
+.section_width{
+    width: 80vw;
+    margin: 0 auto;
+    padding: 15px;
+}
