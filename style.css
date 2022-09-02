@@ -1,0 +1,25 @@
+
+/* header section */
+.header_container{
+    width: 80vw;
+    margin: 0 auto;
+    padding-top: 50px;
+    
+}
+.header_container h4{
+    font-size: 24px;
+}
+.news-tag{
+    background-color: blueviolet;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+.news_color{
+    color: blueviolet;
+}
+hr{
+    width: 80vw;
+    margin: 0 auto;
+    
+}
