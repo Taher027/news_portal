@@ -37,13 +37,22 @@ const categoryPost = (code) => {
 const displayCategoryPosts = (posts) => {
 
     const categoryDiv = document.getElementById('categories_post');
+
+    const noData = document.getElementById('no_found_data')
+    if (posts.length === 0) {
+        noData.classList.remove('d-none')
+    }
+    else {
+        noData.classList.add('d-none')
+    }
     categoryDiv.innerHTML = "";
     console.log(posts)
-    for(const post of posts){
-        
+    for (const post of posts) {
+
         const div = document.createElement('div');
         div.classList.add('blog');
         div.classList.add('p-3');
+        div.classList.add('setmedia')
         div.innerHTML = `
         
         <div>
@@ -52,17 +61,17 @@ const displayCategoryPosts = (posts) => {
                 </div>
                 <div>
                     <h2>${post.title}</h2>
-                    <p>${post.details}</p>
+                    <p>${post.details.slice(0, 250) + '....'}</p>
                     
                     <!-- blog details div  -->
                     <div class="blog_details">
                         <div class="blog_details ">
                             <div>
-                                <img class="author1 " src="img/img2.png" alt="">
+                                <img class="author1 " src="${post.author.img}" alt="">
                             </div>
                             <div class="ms-2">
-                                <h5 class="fs-6 fw-normal">author name</h5>
-                                <h5 class="fs-6 fw-normal">date</h5>
+                                <h5 class="fs-6 fw-normal">Author: ${post.author.name ? post.author.name : 'no Author'}</h5>
+                                <h5 class="fs-6 fw-normal">date: ${post.author.published_date ? post.author.published_date : 'No date found'}</h5>
                             </div>
                         </div>
                         <div>
@@ -76,7 +85,7 @@ const displayCategoryPosts = (posts) => {
                             <i class="fa-regular fa-star fs-6 fw-normal"></i>
                         </div>
                         <div>
-                            <button class="btn btn-primary fs-5">Load more</button>
+                            <button onclick ="loadPostModal('${post._id}')" class="btn btn-primary fs-5">Load more</button>
                         </div>
                     </div>
                 </div>
@@ -84,12 +93,22 @@ const displayCategoryPosts = (posts) => {
         `
         categoryDiv.appendChild(div);
     }
-    
+
     // displayCategoryPosts funtion end 
 };
 
 
 
+
+const loadPostModal = (postId) => {
+    const url = `https://openapi.programming-hero.com/api/news/${postId}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayPostModal(data.data[0]))
+}
+const displayPostModal = post => {
+    console.log(post)
+}
 
 
 
