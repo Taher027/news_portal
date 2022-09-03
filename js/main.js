@@ -46,7 +46,7 @@ const displayCategoryPosts = (posts) => {
         noData.classList.add('d-none')
     }
     categoryDiv.innerHTML = "";
-    console.log(posts)
+    console.log(posts);
     for (const post of posts) {
 
         const div = document.createElement('div');
@@ -85,7 +85,8 @@ const displayCategoryPosts = (posts) => {
                             <i class="fa-regular fa-star fs-6 fw-normal"></i>
                         </div>
                         <div>
-                            <button onclick ="loadPostModal('${post._id}')" class="btn btn-primary fs-5">Load more</button>
+                            <button onclick ="loadPostModal('${post._id}')" class="btn btn-primary fs-5" data-bs-toggle="modal" data-bs-target="#postDetailModal">Load more</button>
+                            
                         </div>
                     </div>
                 </div>
@@ -105,11 +106,25 @@ const loadPostModal = (postId) => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayPostModal(data.data[0]))
-}
+};
 const displayPostModal = post => {
     console.log(post)
-}
+    const modalTilte = document.getElementById('postDetailModalLabel');
+    modalTilte.innerText = post.title;
+    const postDetails = document.getElementById('postDetails');
+    postDetails.innerHTML = `
+    
+    <img src = "${post.thumbnail_url}">
+    <p>${post.details.slice(0, 350)}</p>
+    <p>Rating: ${post.rating.number}</p>
+    <p>Total View: ${post.total_view}</p>
+    <p>Author Name: ${post.author.name}</p>
+    
+    
+    
+    `
+};
 
 
 
-setAllMenu()
+setAllMenu();
