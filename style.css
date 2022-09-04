@@ -53,20 +53,34 @@ hr {
         flex-direction: column;
     }
 }
+
 /* blog section  */
 
-.blog{
+.blog {
     display: flex;
     gap: 50px;
 }
-.blog_details{
+
+.blog_details {
     display: flex;
     justify-content: space-between;
 }
-.author1{
+
+.author1 {
     width: 50px;
     height: 50px;
     border-radius: 50px;
 }
 
 
+/* blog page design  */
+.linkbtn {
+    text-decoration: none;
+}
+
+.blog_section {
+    width: 80vw;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: white;
+}
